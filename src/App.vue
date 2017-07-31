@@ -20,8 +20,13 @@ export default {
   },
   data: function () {
     return {
-      bossList: this.comingSoon()
+      bossList: {},
+      interval: ''
     }
+  },
+  created: function () {
+    this.setBossList()
+    this.interval = setInterval(this.setBossList.bind(this), 60000)
   },
   methods: {
     offset: function () {
@@ -31,13 +36,13 @@ export default {
       }
       return offset
     },
-    comingSoon: function () {
+    setBossList: function () {
       let bosses = {}
       for (let i = 0; i <= 10; i++) {
         let offset = this.offset() + i * 15
         bosses[offset] = times[offset]
       }
-      return bosses
+      this.bossList = bosses
     }
   }
 }
