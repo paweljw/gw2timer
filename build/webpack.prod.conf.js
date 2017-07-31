@@ -89,6 +89,10 @@ var webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
+      },
+      {
+        from: path.resolve(__dirname, '../apple-touch-icon.png'),
+        to: path.resolve(__dirname, '../dist')
       }
     ])
   ]
